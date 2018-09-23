@@ -1,0 +1,28 @@
+﻿.ShopBlock {
+    border: double gray 3px;
+    width: auto;
+    padding: 3px 7px;
+    background-color: #F0F0F0;
+}
+
+.ShopBlock .catalog {
+
+}
+
+.ShopBlock .catalog .imgBlock IMG {
+    height: 100px;
+}
+
+.ShopBlock .catalog .imgBlock {
+    width: 100px;
+    height: 100px;
+    padding: auto;
+    background: #fff;
+    border: 1px solid #bbbbbb;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ShopBlock .SelectedItem{
+    background: coral;
+}
