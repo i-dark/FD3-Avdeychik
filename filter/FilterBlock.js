@@ -17,13 +17,11 @@
     },
 
     toggleSort: function (event) {
-        this.state.doSort = event.target.checked;
-        this.applySortAndFilter();
+        this.setState({doSort : event.target.checked}, this.applySortAndFilter);
     },
 
     filterChange: function (event) {
-        this.state.filter = event.target.value;
-        this.applySortAndFilter();
+        this.setState({filter: event.target.value}, this.applySortAndFilter);
     },
 
     applySortAndFilter: function () {

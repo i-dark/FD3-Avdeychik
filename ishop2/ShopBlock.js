@@ -16,7 +16,8 @@
 
     getInitialState: function () {
         return {
-            'catalog': this.props.catalog
+            'catalog': this.props.catalog,
+            'selectedItems': []
         };
     },
 
@@ -26,11 +27,23 @@
         );
     },
 
+    selectItemCallback: function (itemId) {
+        this.setState({selectedItems: [itemId]});
+    },
+
     render: function () {
 
+
         const listItems = this.state.catalog.map((item) =>
-            <ItemBlock key={item.id} item={item} deleteCallback={this.deleteItemCallback}/>
-        );
+                <ItemBlock
+                    key={item.id}
+                    item={item}
+                    selected={this.state.selectedItems.indexOf(item.id) > -1}
+                    deleteCallback={this.deleteItemCallback}
+                    selectItemCallback={this.selectItemCallback}
+                />
+            )
+        ;
 
         return (<div className="ShopBlock">
             <table className="catalog" width="100%">

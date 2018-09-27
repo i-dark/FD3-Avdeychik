@@ -9,22 +9,16 @@
                 price: React.PropTypes.number.isRequired,
                 url: React.PropTypes.string,
                 leftInStock: React.PropTypes.number.isRequired,
+                selected: React.PropTypes.bool
             }),
         },
-
-        getInitialState: function () {
-            return {
-                'selected' : false
-            };
-        },
-
 
         deleteItem: function (event) {
             this.props.deleteCallback(this.props.item.id);
         },
 
         selectItem: function (event) {
-            this.setState({selected: !this.state.selected});
+            this.props.selectItemCallback(this.props.item.id);
         },
 
         render: function () {
@@ -34,7 +28,7 @@
 
             return (
                 <tr onClick={this.selectItem}
-                    className={this.state.selected ? "SelectedItem" : ""}>
+                    className={this.props.selected ? "SelectedItem" : ""}>
                     <td>
                         <div className="imgBlock">
                             {img}
