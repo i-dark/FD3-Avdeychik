@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Магазин</title>
+</head>
+<body>
+<div id="container"></div>
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+<script src="ShopBlock.js" type="text/babel"></script>
+<script src="ItemBlock.js" type="text/babel"></script>
+<link rel="stylesheet" type="text/css" href="ShopBlock.css"/>
+
+
+<script type="text/babel">
+
+    // по каждому товару должны храниться как минимум название, цена, URL фотографии, сколько единиц товара осталось на складе.
+    var shopCatalog = [
+        {
+            id: 1,
+            name: "Виски Jameson 40% 0,5л",
+            price: 20,
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS20SphwtkpZdvsQH8wdJsSbhm1oY0AiEJNB7ej6ngbrul6LkbQ",
+            leftInStock: 222,
+        },
+        {
+            id: 2,
+            name: "Виски William Lawson\'s 0.7 л",
+            price: 30,
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeRN1HP59uVqMUj7KX_X54pKCrBkmhFhcHB_mp4HqaZaBEZnBn",
+            leftInStock: 555,
+        }, {
+            id: 3,
+            name: "Виски Jameson 40% 0,5л",
+            price: 40,
+            // url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS20SphwtkpZdvsQH8wdJsSbhm1oY0AiEJNB7ej6ngbrul6LkbQ",
+            leftInStock: 66,
+        },
+        {
+            id: 4,
+            name: "Виски William Lawson\'s 0.7 л",
+            price: 50,
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeRN1HP59uVqMUj7KX_X54pKCrBkmhFhcHB_mp4HqaZaBEZnBn",
+            leftInStock: 33,
+        },
+    ];
+
+    ReactDOM.render(
+        <ShopBlock catalog={shopCatalog} ></ShopBlock>,
+        document.getElementById('container')
+    );
+
+</script>
+
+</body>
+</html>
