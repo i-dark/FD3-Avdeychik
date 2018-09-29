@@ -1,38 +1,39 @@
-﻿var ShopBlock = React.createClass({
+﻿import React from "react";
+import PropTypes from "prop-types";
 
-    displayName: 'ShopBlock',
+import "./ShopBlock.css";
+import ItemBlock from "../ItemBlock/ItemBlock";
 
-    propTypes: {
-        catalog: React.PropTypes.arrayOf(
-            React.PropTypes.shape({
-                id: React.PropTypes.number.isRequired,
-                name: React.PropTypes.string.isRequired,
-                price: React.PropTypes.number.isRequired,
-                url: React.PropTypes.string,
-                leftInStock: React.PropTypes.number.isRequired,
+class ShopBlock extends React.Component {
+
+    static propTypes = {
+        catalog: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                name: PropTypes.string.isRequired,
+                price: PropTypes.number.isRequired,
+                url: PropTypes.string,
+                leftInStock: PropTypes.number.isRequired,
             })
         )
-    },
+    };
 
-    getInitialState: function () {
-        return {
-            'catalog': this.props.catalog,
-            'selectedItems': []
-        };
-    },
+    state = {
+        'catalog': this.props.catalog,
+        'selectedItems': []
+    };
 
-    deleteItemCallback: function (id) {
+    deleteItemCallback = (id) => {
         this.setState(
             {catalog: this.state.catalog.filter(item => item.id != id)}
         );
-    },
+    }
 
-    selectItemCallback: function (itemId) {
+    selectItemCallback = (itemId) => {
         this.setState({selectedItems: [itemId]});
-    },
+    }
 
-    render: function () {
-
+    render() {
 
         const listItems = this.state.catalog.map((item) =>
                 <ItemBlock
@@ -52,6 +53,8 @@
                 </tbody>
             </table>
         </div>);
-    },
+    }
 
-});
+}
+
+export default ShopBlock;

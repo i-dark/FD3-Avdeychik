@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Виски Jameson 40% 0,5л",
+    "price": 20,
+    "url": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcS20SphwtkpZdvsQH8wdJsSbhm1oY0AiEJNB7ej6ngbrul6LkbQ",
+    "leftInStock": 222
+  },
+  {
+    "id": 2,
+    "name": "Виски William Lawsons 0,7 л",
+    "price": 30,
+    "url": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQeRN1HP59uVqMUj7KX_X54pKCrBkmhFhcHB_mp4HqaZaBEZnBn",
+    "leftInStock": 555
+  },
+  {
+    "id": 3,
+    "name": "Виски Jameson 40% 0,5л",
+    "price": 40,
+    "leftInStock": 66
+  },
+  {
+    "id": 4,
+    "name": "Виски William Lawson 0,7 л",
+    "price": 50,
+    "url": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQeRN1HP59uVqMUj7KX_X54pKCrBkmhFhcHB_mp4HqaZaBEZnBn",
+    "leftInStock": 33
+  }
+]
