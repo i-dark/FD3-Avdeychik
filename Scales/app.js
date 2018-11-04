@@ -1,22 +1,52 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Product = /** @class */ (function () {
-    function Product(name, weight) {
-        this._name = name;
+    function Product(weight) {
         this.weight = weight;
     }
     Product.prototype.getWeight = function () {
         return this.weight;
     };
     Product.prototype.getName = function () {
-        return this._name;
+        return this.name;
     };
     return Product;
 }());
+var Potato = /** @class */ (function (_super) {
+    __extends(Potato, _super);
+    function Potato(weight) {
+        var _this = _super.call(this, weight) || this;
+        _this.name = 'Potato';
+        return _this;
+    }
+    return Potato;
+}(Product));
+var Tomato = /** @class */ (function (_super) {
+    __extends(Tomato, _super);
+    function Tomato(weight) {
+        var _this = _super.call(this, weight) || this;
+        _this.name = 'Tomato';
+        return _this;
+    }
+    return Tomato;
+}(Product));
 var Scales = /** @class */ (function () {
     function Scales() {
         this.products = [];
     }
     Scales.prototype.add = function (product) {
-        this.products = this.products.concat([product]);
+        this.products.push(product);
     };
     Scales.prototype.getProducts = function () {
         return this.products;
@@ -38,9 +68,8 @@ var Scales = /** @class */ (function () {
     return Scales;
 }());
 var scales = new Scales();
-scales.add(new Product('Potato', 10));
-scales.add(new Product('Cabage', 20));
-scales.add(new Product('Tomato', 30));
+scales.add(new Potato(10));
+scales.add(new Tomato(20));
 console.log(scales.getProducts());
 console.log(scales.getNameList());
 console.log(scales.getSumWeight());

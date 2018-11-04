@@ -1,18 +1,32 @@
-class Product {
-    private _name: string;
+abstract class Product {
+
+    protected name: string;
     private weight: number;
 
-    constructor(name, weight) {
-        this._name = name;
+    constructor(weight) {
         this.weight = weight;
     }
 
-    public getWeight():number {
+    public getWeight(): number {
         return this.weight;
     }
 
     public getName(): string {
-        return this._name;
+        return this.name;
+    }
+}
+
+
+class Potato extends Product {
+    protected name: string = 'Potato';
+    constructor(weight) {
+        super(weight);
+    }
+}
+class Tomato extends Product {
+    protected name:string = 'Tomato';
+    constructor(weight) {
+        super(weight);
     }
 }
 
@@ -26,7 +40,7 @@ class Scales {
     }
 
     add(product: Product): void {
-        this.products = [...this.products, product]
+        this.products.push(product);
     }
 
     getProducts(): Product[] {
@@ -41,7 +55,7 @@ class Scales {
         return w;
     }
 
-    getNameList():string[] {
+    getNameList(): string[] {
         let w: string[] = [];
         this.products.map((p) => {
             w.push(p.getName());
@@ -53,9 +67,8 @@ class Scales {
 
 let scales: Scales = new Scales();
 
-scales.add(new Product('Potato', 10));
-scales.add(new Product('Cabage', 20));
-scales.add(new Product('Tomato', 30));
+scales.add(new Potato( 10));
+scales.add(new Tomato( 20));
 
 console.log(scales.getProducts());
 console.log(scales.getNameList());
