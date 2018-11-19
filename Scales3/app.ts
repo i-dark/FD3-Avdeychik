@@ -57,7 +57,10 @@ class ScalesStorageEngineLocalStorage implements IStorageEngine {
 
     constructor() {
         if (window.localStorage.getItem('items')) {
-            this.items = JSON.parse(window.localStorage.getItem('items'));
+            let items = JSON.parse(window.localStorage.getItem('items'));
+            items.forEach((item)=>{
+                this.items.push(new Product(item.name, item.weight));
+            })
         }
     };
 

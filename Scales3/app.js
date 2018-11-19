@@ -28,9 +28,13 @@ var ScalesStorageEngineArray = /** @class */ (function () {
 }());
 var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     function ScalesStorageEngineLocalStorage() {
+        var _this = this;
         this.items = [];
         if (window.localStorage.getItem('items')) {
-            this.items = JSON.parse(window.localStorage.getItem('items'));
+            var items = JSON.parse(window.localStorage.getItem('items'));
+            items.forEach(function (item) {
+                _this.items.push(new Product(item.name, item.weight));
+            });
         }
     }
     ;
